@@ -2,7 +2,7 @@ package com.example.demo4.mvp
 
 interface PatientMvp {
 
-    interface View : BaseView {
+    interface View {
         fun showLoading()
 
         fun hideLoading()
@@ -10,14 +10,12 @@ interface PatientMvp {
         fun showData()
     }
 
-    interface Model : BaseModel
-
-    interface Presenter : BasePresenter<View> {
+    interface Presenter {
         fun getPatientList(locId: String)
     }
 }
 
-class PatientPresenter : RxPresenter<PatientMvp.View,PatientMvp.Model>(),PatientMvp.Presenter{
+class PatientPresenter : RxPresenter<BaseView,BaseModel>(),PatientMvp.Presenter{
 
     override fun getPatientList(locId: String) {
 

@@ -17,6 +17,6 @@ abstract class BasePresenterActivity<T:ViewDataBinding,P:BasePresenter<BaseView>
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter?.detach()
+        presenter?.detachView()
     }
 }

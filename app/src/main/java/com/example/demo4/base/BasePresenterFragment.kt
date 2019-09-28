@@ -16,6 +16,6 @@ abstract class BasePresenterFragment<T:ViewDataBinding,P:BasePresenter<BaseView>
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter?.detach()
+        presenter?.detachView()
     }
 }

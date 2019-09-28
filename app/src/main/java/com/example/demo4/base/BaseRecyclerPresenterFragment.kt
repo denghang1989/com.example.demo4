@@ -6,7 +6,7 @@ import com.example.demo4.mvp.BaseModel
 import com.example.demo4.mvp.BaseView
 import com.example.demo4.mvp.RxPresenter
 
-abstract class BaseRecyclerPresenterFragment<A : BaseQuickAdapter<*, BaseViewHolder>,P : RxPresenter<out BaseView ,out BaseModel>> :
+abstract class BaseRecyclerPresenterFragment<A : BaseQuickAdapter<*, BaseViewHolder>,P : RxPresenter<BaseView,BaseModel>> :
     BaseRecyclerFragment<A>(), BaseView {
 
      var presenter: P?=null
@@ -18,7 +18,7 @@ abstract class BaseRecyclerPresenterFragment<A : BaseQuickAdapter<*, BaseViewHol
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter?.detach()
+        presenter?.detachView()
     }
 
     abstract fun initPresenter(): P

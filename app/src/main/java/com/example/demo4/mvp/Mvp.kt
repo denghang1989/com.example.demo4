@@ -4,10 +4,10 @@ interface BaseView
 
 interface BaseModel
 
-interface BasePresenter<V: BaseView> {
-    fun attachView(v:V)
+interface BasePresenter<BaseView> {
+    fun attachView(v:BaseView)
 
-    fun detach()
+    fun detachView()
 }
 
 open class RxPresenter<V : BaseView, M : BaseModel> : BasePresenter<V> {
@@ -18,7 +18,7 @@ open class RxPresenter<V : BaseView, M : BaseModel> : BasePresenter<V> {
         view = v
     }
 
-    override fun detach() {
+    override fun detachView() {
         view = null
     }
 
