@@ -5,7 +5,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import me.yokeyword.fragmentation_swipeback.SwipeBackActivity
 
-public abstract class BaseActivity<T:ViewDataBinding> :SwipeBackActivity(){
+abstract class BaseActivity<T:ViewDataBinding> :SwipeBackActivity(){
 
     lateinit var mDataBinding: T
 

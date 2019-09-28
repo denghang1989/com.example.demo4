@@ -4,9 +4,8 @@ import androidx.databinding.ViewDataBinding
 import com.example.demo4.mvp.BasePresenter
 import com.example.demo4.mvp.BaseView
 
-abstract class BasePresenterActivity<T:ViewDataBinding,P:BasePresenter<BaseView>> :BaseActivity<T>(),BaseView{
-
-    var presenter: P? = null
+abstract class BasePresenterFragment<T:ViewDataBinding,P:BasePresenter<BaseView>>: BaseFragment<T>(),BaseView {
+    var presenter: P?=null
 
     override fun init() {
         presenter = initPresenter()
@@ -15,8 +14,8 @@ abstract class BasePresenterActivity<T:ViewDataBinding,P:BasePresenter<BaseView>
 
     abstract fun initPresenter(): P?
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         presenter?.detach()
     }
 }
