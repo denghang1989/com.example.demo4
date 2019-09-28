@@ -1,5 +1,7 @@
 package com.example.demo4.mvp
 
+import com.example.demo4.controller.Patient
+
 interface PatientMvp {
 
     interface View {
@@ -7,7 +9,7 @@ interface PatientMvp {
 
         fun hideLoading()
 
-        fun showData()
+        fun showData(patients: List<Patient>)
     }
 
     interface Presenter {
@@ -15,7 +17,7 @@ interface PatientMvp {
     }
 }
 
-class PatientPresenter : RxPresenter<BaseView,BaseModel>(),PatientMvp.Presenter{
+class PatientPresenter : RxPresenter<BaseView, BaseModel>(), PatientMvp.Presenter {
 
     override fun getPatientList(locId: String) {
 

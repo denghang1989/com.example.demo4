@@ -18,7 +18,7 @@ class PatientFragment:BaseRecyclerPresenterFragment<PatientAdapter, PatientPrese
     }
 
     override fun initData() {
-
+        presenter.getPatientList("")
     }
 
     override fun showLoading() {
@@ -29,18 +29,17 @@ class PatientFragment:BaseRecyclerPresenterFragment<PatientAdapter, PatientPrese
 
     }
 
-    override fun showData() {
+    override fun showData(patients: List<Patient>) {
+
+    }
+}
+
+class PatientAdapter(layoutId:Int): BaseQuickAdapter<Patient, BaseViewHolder>(layoutId) {
+
+    override fun convert(helper: BaseViewHolder, item: Patient?) {
 
     }
 
 }
 
-class PatientAdapter(layoutId:Int): BaseQuickAdapter<PatientModel, BaseViewHolder>(layoutId) {
-
-    override fun convert(helper: BaseViewHolder, item: PatientModel?) {
-
-    }
-
-}
-
-data class PatientModel(var name:String,var age:Int)
+data class Patient(var name:String, var age:Int)
