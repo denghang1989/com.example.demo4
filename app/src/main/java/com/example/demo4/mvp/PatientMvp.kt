@@ -1,6 +1,6 @@
 package com.example.demo4.mvp
 
-import com.example.demo4.controller.Patient
+import com.example.demo4.components.Patient
 
 interface PatientMvp {
 
